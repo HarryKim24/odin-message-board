@@ -11,11 +11,16 @@
     <h1><%= title %></h1>
     <a href="/new" class="new-message-link">New Message</a>
     <div class="messages">
-      <% messages.forEach(message => { %>
+      <% messages.forEach((message, index) => { %>
         <div class="message">
-          <strong><%= message.user %></strong>: <%= message.text %>
+          <strong><%= message.user %></strong>: 
+          <%= message.text.length > 30 
+                ? message.text.slice(0, 30) + '...' 
+                : message.text %>
           <br>
           <small><%= message.added.toLocaleString() %></small>
+          <br>
+          <a href="/message/<%= index %>">Open</a>
         </div>
       <% }); %>
     </div>

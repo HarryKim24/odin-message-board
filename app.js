@@ -2,19 +2,7 @@ const path = require('node:path');
 const express = require('express');
 const app = express();
 const indexRoutes = require('./routes/index');
-
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
+const messages = require('./db');
 
 const PORT = 3000;
 app.set('views', path.join(__dirname, 'views'));
